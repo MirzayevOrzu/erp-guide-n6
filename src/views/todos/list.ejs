@@ -1,0 +1,43 @@
+<div class="my-3 d-flex justify-content-between align-items-center">
+    <h1>Bildirishnomalar</h1>
+    <% if (currentUser.role==='admin' ) { %>
+        <a href="/todos/create" class="btn btn-primary" role="button">Bildirishnoma qo'shish</a>
+        <% } %>
+</div>
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="col-1" scope="col">#</th>
+            <th scope="col">Tartib</th>
+            <th scope="col">Foydalanuvchi</th>
+            <th scope="col">Holat</th>
+            <th class="col-2" scope="col">Amallar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% todos.forEach((todo, i)=> { %>
+            <tr>
+                <th scope="row">
+                    <%= i + 1 %>
+                </th>
+                <td>
+                    <%= todo.guide.title %>
+                </td>
+                <td>
+                    <%= `${todo.user.firstName} ${todo.user.lastName}` %>
+                </td>
+                <td>
+                    <%= todo.completed ? 'Tanishilgan' : 'Tanishilmagan' %>
+                </td>
+                <td class="d-flex gap-2">
+                    <a class="btn btn-link" href="/todos/<%= todo.id %>">Ko'rish</a>
+                    <% if (currentUser.role==='admin' ) { %>
+                        <form action="/todos/<%= todo.id %>/delete" method="post">
+                            <button class="btn btn-outline-danger" type="submit">O'chirish</button>
+                        </form>
+                        <% } %>
+                </td>
+            </tr>
+            <% }) %>
+    </tbody>
+</table>

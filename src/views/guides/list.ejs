@@ -1,0 +1,36 @@
+<div class="my-3 d-flex justify-content-between align-items-center">
+  <h1>Tartiblar</h1>
+  <% if (currentUser.role==='admin' ) { %>
+    <a href="/guides/create" class="btn btn-primary" role="button">Tartib qo'shish</a>
+    <% } %>
+</div>
+<table class="table table-hover table-bordered">
+  <thead>
+    <tr>
+      <th class="col-1" scope="col">#</th>
+      <th scope="col">Nomi</th>
+      <th class="col-2" scope="col">Amallar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% guides.forEach((guide, i)=> { %>
+      <tr>
+        <th scope="row">
+          <%= i + 1 %>
+        </th>
+        <td>
+          <%= guide.title %>
+        </td>
+        <td class="d-flex gap-2">
+          <a class="btn btn-link" href="/guides/<%= guide.id %>">Ko'rish</a>
+          <% if (currentUser.role==='admin' ) { %>
+            <a class="btn btn-outline-warning" href="/guides/<%= guide.id %>/edit">Tahrirlash</a>
+            <form class="d-inline" action="/guides/<%= guide.id %>/delete" method="post">
+              <button class="btn btn-outline-danger" type="submit">O'chirish</button>
+            </form>
+            <% } %>
+        </td>
+      </tr>
+      <% }) %>
+  </tbody>
+</table>

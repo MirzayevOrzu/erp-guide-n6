@@ -1,0 +1,24 @@
+<div class="card mt-3" style="width: 18rem;">
+  <img
+    src="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+    class="card-img-top " alt="...">
+  <div class="card-body">
+    <h5 class="card-title">
+      <%= `${user.firstName} ${user.lastName}` %>
+    </h5>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Login: @<%= user.username %>
+    </li>
+    <li class="list-group-item">Yoshi: <%= user.age %>
+    </li>
+    <li class="list-group-item">Rol: <%= user.role==='admin' ? 'Admin' : 'Ishchi' %>
+    </li>
+  </ul>
+  <div class="card-body">
+    <a href="/users/<%= user.id %>/edit" class="btn btn-outline-warning me-3">Tahrirlash</a>
+    <form class="d-inline" action="/users/<%= user.id %>/delete" method="post">
+      <button type="submit" class="btn btn-outline-danger">O'chirish</button>
+    </form>
+  </div>
+</div>

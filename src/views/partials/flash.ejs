@@ -1,0 +1,26 @@
+<% if (success && success.length) { %>
+    <% success.forEach(message=> { %>
+        <div class="mt-3 alert alert-success alert-dismissible fade show" role="alert">
+            <%= message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if (warning && warning.length) { %>
+    <% warning.forEach(message=> { %>
+        <div class="mt-3 alert alert-warning alert-dismissible fade show" role="alert">
+            <%= message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }) %>
+<% } %>
+
+<% if (error && error.length) { %>
+    <% error.forEach(message=> { %>
+        <div class="mt-3 alert alert-danger alert-dismissible fade show" role="alert">
+            <%= message %>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    <% }) %>
+<% } %>

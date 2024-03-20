@@ -1,0 +1,16 @@
+<div class="my-3 d-flex justify-content-between align-items-center">
+    <h1>
+        <%= guide.title %>
+    </h1>
+    <% if (currentUser.role==='admin' ) { %>
+        <div class="d-flex gap-2">
+            <a class="btn btn-outline-warning" href="/guides/<%= guide.id %>/edit">Tahrirlash</a>
+            <form action="/guides/<%= guide.id %>/delete" method="post">
+                <button class="btn btn-outline-danger" type="submit">O'chirish</button>
+            </form>
+        </div>
+        <% } %>
+</div>
+<p class="lead">
+    <%= guide.content %>
+</p>

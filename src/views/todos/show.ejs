@@ -1,0 +1,16 @@
+<div class="my-3 d-flex justify-content-between align-items-center">
+    <h1>
+        <%= todo.guide.title %>
+    </h1>
+</div>
+<p class="lead">
+    <%= `${todo.user.firstName} ${todo.user.lastName}` %>
+</p>
+<p class="lead">
+    <%= todo.guide.content %>
+</p>
+<form action="/todos/<%= todo.id %>/complete" method="post">
+    <button class="btn btn-success" type="submit" <%=todo.completed ? "disabled" : "" %>>
+        <%= todo.completed ? "Tanishilgan" :"Tanishibchiqdim" %>
+    </button>
+</form>

@@ -1,0 +1,30 @@
+<div class="my-3 d-flex justify-content-between align-items-center">
+    <h1>Bildirish</h1>
+</div>
+<div class="row justify-content-start">
+    <div class="col-md-6">
+        <form action="/todos/create" method="post">
+            <div class="form-group mb-3">
+                <label for="user_id">Kimga:</label>
+                <select id="user_id" name="user_id" class="form-select">
+                    <% users.forEach(user=> { %>
+                        <option value="<%= user.id %>">
+                            <%= `${user.firstName} ${user.lastName}` %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+            <div class="form-group mb-3">
+                <label for="guide_id">Qaysi tartib:</label>
+                <select id="guide_id" name="guide_id" class="form-select">
+                    <% guides.forEach(guide=> { %>
+                        <option value="<%= guide.id %>">
+                            <%= guide.title %>
+                        </option>
+                        <% }) %>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Yuborish</button>
+        </form>
+    </div>
+</div>

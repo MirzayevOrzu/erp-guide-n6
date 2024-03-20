@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img src="/static/images/logo.png" alt="TARTIB.UZ" width="200">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto my-2 my-lg-0">
+        <% if (currentUser.role==='admin' ) { %>
+          <li class="nav-item">
+            <a class="nav-link <%= page === 'users' ? 'active fw-bold' :'' %>" aria-current="page"
+              href="/users/list">Foydalanuvchilar</a>
+          </li>
+          <% } %>
+            <li class="nav-item">
+              <a class="nav-link  <%= page === 'guides' ? 'active fw-bold' :'' %>" href="/guides/list">Tartiblar</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link  <%= page === 'todos' ? 'active fw-bold' :'' %>"
+                href="/todos/list">Bildirishnomalar</a>
+            </li>
+      </ul>
+      <form class="d-flex" action="/logout" method="post">
+        <button class="btn btn-secondary" type="submit">Logout</button>
+      </form>
+    </div>
+  </div>
+</nav>
